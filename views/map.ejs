@@ -1,0 +1,31 @@
+<% layout('layout') -%>
+<% script('js/map.js') %>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+<style>
+  #map {
+    width: auto;
+    height: 400px;
+    box-shadow: 5px 5px 5px #888;
+  }
+</style>
+
+<div class="container-fluid">
+  <h1 class="mt-4"></h1>
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="card">
+        <div class="card-header text-center">
+          <i class="fas fa-globe-europe fa-2x"></i><strong> Incidences Map</strong>
+        </div>
+        <div class="card-body">
+          <div id='map'></div>
+        </div>
+        <script>
+          var incidences = <%-JSON.stringify(incidences) %>;
+        </script>
+      </div>
+    </div>
+  </div>
+</div>

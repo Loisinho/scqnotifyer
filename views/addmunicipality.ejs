@@ -1,0 +1,24 @@
+<% layout('layout') -%>
+<% script('js/addmunicipality.js') %>
+
+<div class="container-fluid">
+    <h1 class="mt-4"></h1>
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    <i class="fas fa-cloud-sun fa-2x"></i><strong> Add Municipality</strong>
+                </div>
+    
+                <div class="card-body">
+                    <form>
+                        <div class="form-group"><label for="municipality">Municipality</label><input class="form-control" id="municipality" name="municipality" type="text" placeholder="Enter municipality" autofocus required /></div>
+                        <div id="inediv" class="form-group" style="display: none;"><label for="ine">INE</label><input class="form-control" id="ine" name="ine" type="text" disabled /></div>
+                        <div id="emaildiv" class="form-group" style="display: none;"><label for="email">Email</label><input class="form-control" id="email" name="email" type="email" /></div>
+                        <input type="submit" class="btn btn-primary w-100" id="search" value="Search">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

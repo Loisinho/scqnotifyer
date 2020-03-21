@@ -1,0 +1,34 @@
+<% layout('layout') -%>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card text-center">
+
+                <div class="card-header">
+                    <i class="fas fa-sign-in-alt fa-2x"></i><strong> Acceso a SCQ Notifyer</strong>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Telegram authentication <i class="fab fa-telegram fa-2x"></i></h5>
+                    <p class="card-text">The authorization of access to this website is through <b><a href="https://www.telegram.org/" target="_blank">Telegram</a></b>.</p>
+                    <p class="card-text">Therefore you will need to have Telegram installed on your mobile device, PC, tablet...</p>
+                    <p class="card-text">to access this website.</p>
+                    <p class="card-text">
+                        <!-- CALLBACK -->
+                        <script async src="https://telegram.org/js/telegram-widget.js?7" data-telegram-login="SCQNLoisBot" data-size="large" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
+                        <script type="text/javascript">
+                          function onTelegramAuth(user) {
+                            $.post('/loginx', user, function(result) {
+                                if (result.status == 'ok') {
+                                    document.location = '/';
+                                    // alert('Sesión creada.');
+                                }
+                            });
+                          }
+                        </script>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

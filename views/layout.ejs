@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="SCQ Notification of alerts & incidences to the city council." />
+  <meta name="author" content="Diego Lois" />
+  <title><%=title%></title>
+  <link href="css/plantilla.css" rel="stylesheet" />
+  <%-stylesheets%>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+</head>
+<body class="sb-nav-fixed">
+  <%- include common/uppermenu %>
+
+  <div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+      <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <%- include common/leftmenu %>
+      </nav>
+    </div>
+
+    <!-- contenido -->
+    <div id="layoutSidenav_content">
+      <main>
+        <div class="container-fluid">
+          <%-body %>
+        </div>
+      </main>
+      <%- include common/footer %>
+    </div>
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/collapse.js"></script>
+  <%-scripts%>
+</body>
+</html>

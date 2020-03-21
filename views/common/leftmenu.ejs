@@ -1,0 +1,46 @@
+<div class="sb-sidenav-menu">
+    <div class="nav">
+        <div class="sb-sidenav-menu-heading">Main</div>
+        <a class="nav-link" href="/info"><div class="sb-nav-link-icon"><i class="fas fa-info"></i></div>Project Info</a>
+        <a class="nav-link" href="/incidences"><div class="sb-nav-link-icon"><i class="fas fa-list-alt"></i></div>Incidences List</a>
+        <a class="nav-link" href="/municipalities"><div class="sb-nav-link-icon"><i class="fas fa-university"></i></div>Municipalities</a>
+        <a class="nav-link" href="/map"><div class="sb-nav-link-icon"><i class="fas fa-globe-europe"></i></div>Incidences Map</a>
+        <a class="nav-link" href="/meteo"><div class="sb-nav-link-icon"><i class="fas fa-cloud-sun"></i></div>Meteo</a>
+    
+        <% if (user === null) { %>
+        <a class="nav-link" href="/login"><div class="sb-nav-link-icon"><i class="fas fa-sign-in-alt"></i></div>Access</a>
+        <% } %>
+
+        <% if (user !== null) { %>
+        <div class="sb-sidenav-menu-heading">Private Menu</div>
+
+        <a class="nav-link" href="/myincidences"><div class="sb-nav-link-icon"><i class="fas fa-list-alt"></i></div>My Incidences (edit/delete)</a>
+        <a class="nav-link" href="/profile"><div class="sb-nav-link-icon"><i class="fas fa-id-card"></i></div>Profile (cancel account)</a>
+        <!-- <a class="nav-link" href="/infotelegram"><div class="sb-nav-link-icon"><i class="fab fa-telegram"></i></div>Datos Telegram</a> -->
+            <% if(typeof user.admin === 'undefined') { %>
+            <a class="nav-link" href="/adminlogin"><div class="sb-nav-link-icon"><i class="fas fa-sign-in-alt"></i></div>Admin Access</a>
+            <% } %>
+        <a class="nav-link" href="/disconnect"><div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>Disconnect</a>
+        <% } %>
+
+        <% if (user !== null && user.agent != '') { %>
+        <div class="sb-sidenav-menu-heading">Agent Menu</div>
+    
+        <a class="nav-link" href="/manageagentincidences"><div class="sb-nav-link-icon"><i class="fas fa-tools"></i></div>Municipality Incidences</a>
+        <% } %>
+
+        <% if (user !== null && typeof user.admin !== 'undefined') { %>
+        <div class="sb-sidenav-menu-heading">Admin Menu</div>
+
+        <a class="nav-link" href="/manageincidences"><div class="sb-nav-link-icon"><i class="fas fa-tools"></i></div>Manage Incidences</a>
+        <a class="nav-link" href="/addmunicipality"><div class="sb-nav-link-icon"><i class="fas fa-university"></i></div>Add Municipality</a>
+        <% } %>
+
+    </div>
+</div>
+
+<% if (user !== null) { %>
+<div class="sb-sidenav-footer">
+    <div class="small">You are connected as: <%-user.name + " " + user.lastname %> (via Telegram)</div>
+</div>
+<% } %>

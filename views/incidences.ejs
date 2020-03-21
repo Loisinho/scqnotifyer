@@ -1,0 +1,45 @@
+<% layout('layout') -%>
+
+<div class="container-fluid">
+    <h1 class="mt-4"></h1>
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card text-center">
+                <div class="card-header">
+                    <i class="fas fa-info-circle fa-2x"></i><strong> Public Incidences</strong>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Last 10 incidences.</h5>
+
+                    <% if (incidences.length != 0) { %>
+                        <% for(i in incidences) { %>
+                            <div class="card float-right w-100">
+                              <div class="row">
+                                <div class="col-xl-2">
+                                  <img class="d-block w-100" src="img/<%-incidences[i].img %>" alt="">
+                                </div>
+                                <div class="col-xl-10">
+                                  <div class="card-block">
+                                    <p><%-incidences[i].description %></b></p>
+                                    <p><b><%-incidences[i].date.toLocaleDateString('en-GB') + ', ' + incidences[i].date.toLocaleTimeString('en-GB') %></b></p>
+                                    <p><b><%-incidences[i].municipality + ', Coords: ' + incidences[i].lat + ', ' + incidences[i].lon %><br><a href="/map?inc=<%-incidences[i]._id %>">See on map</a></b></p>
+                                    <% if(!incidences[i].solved) { %>
+                                        <p class="alert alert-danger">PENDING</p>
+                                    <% } else { %>
+                                        <p class="alert alert-success">SOLVED</p>
+                                    <% } %>
+                                    <p><%-incidences[i].solText %></p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        <% } %>
+                    <% } else { %>
+                        <h5 class="card-title text-center">There are no incidences.</h5>
+                    <% } %>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

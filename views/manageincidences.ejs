@@ -1,0 +1,51 @@
+<% layout('layout') -%>
+<% script('js/manageincidences.js') %>
+
+<div class="container-fluid">
+    <h1 class="mt-4"></h1>
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card text-center">
+                <div class="card-header">
+                    <i class="fas fa-info fa-2x"></i><strong> Incidences</strong>
+                </div>
+                <div class="card-body">
+
+                    <% if (incidences.length != 0) { %>
+                        <% for(i in incidences) { %>
+                            <div class="card float-right w-100">
+                              <div class="row">
+                                <div class="col-xl-2">
+                                  <img class="d-block w-100" src="img/<%-incidences[i].img %>" alt="">
+                                </div>
+                                <div class="col-xl-10">
+                                  <div class="card-block">
+                                    <input type="hidden" id="userId" name="userId" value="<%-incidences[i].user %>">
+                                    <input type="hidden" id="incidenceId" name="incidenceId" value="<%-incidences[i]._id %>">
+                                    <p id="description"><%-incidences[i].description %></p>
+                                    <p id="date"><b><%-incidences[i].date.toLocaleDateString('en-GB') + ', ' + incidences[i].date.toLocaleTimeString('en-GB') %></b></p>
+                                    <p id="coords"><b><%-incidences[i].municipality + ', Coords: ' + incidences[i].lat + ', ' + incidences[i].lon %><br><a href="/map?inc=<%-incidences[i]._id %>">See on map</a></b></p>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button class="btn btn-danger" id="delete">Delete</button>
+                                        <button class="btn btn-primary" id="startedit">Edit</button><br>
+                                        <% if(!incidences[i].solved) { %>
+                                            <button class="btn btn-success" id="startsolve">Solve</button>
+                                        <% } else { %>
+                                            <button class="btn btn-warning" id="leavepending">Leave Pending</button>
+                                        <% } %>
+                                    </div>
+                                    <p id="solText"><%-incidences[i].solText %></p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        <% } %>
+                    <% } else { %>
+                        <h5 class="card-title text-center">There are no incidences.</h5>
+                    <% } %>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

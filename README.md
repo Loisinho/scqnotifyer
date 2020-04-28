@@ -7,6 +7,7 @@ IES San Clemente DWCS project.
 ## Steps before use
 ###### Run npm commands in main folder:
 ```
+cd scqnotifyer
 npm install
 ```
 
@@ -20,6 +21,10 @@ With your Telegram Bot and your API key ready:
 
 Firstly, you need the rigth certs inside docs/certs
 Secondly, you must complete the data of the file .env
-Finally, you must update de url and email of the controllers file and app.js
 
 All done!
+
+###### To run the app:
+```
+node app.js
+```

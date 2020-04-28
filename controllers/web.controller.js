@@ -3,16 +3,15 @@ const request = require('request');
 
 const {userschema, municipalityschema} = require('../models/users.model');
 
-// TODO: Modify before use.
-const url = '';
-const email = '';
+const url = process.env.WEB_URL;
+const email = process.env.WEB_EMAIL;
 
 const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: email,
-        pass: 'password' // TODO: Modify before use.
+        pass: process.env.EMAIL_PASSWORD
     }
 });
 
